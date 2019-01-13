@@ -19,22 +19,38 @@ public class ChordSequencePlayer implements Playable{
 		}
 	}
 
-	public void play(Synthesizer newSynth, LineOut newLineout) {
+	public ArrayList<ChordPlayer> getChordPlayers() {
+		return chordPlayers;
+	}
+
+	public ArrayList<Chord> getChordProgression() {
+		return chordProgression;
+	}
+
+	public Synthesizer getSynth() {
+		return synth;
+	}
+
+	public LineOut getLineOut() {
+		return lineOut;
+	}
+
+	public void play() {
 		for (int i = 0 ; i < chordPlayers.size() ; i++) {
-			chordPlayers.get(i).play(newSynth, newLineout);
+			chordPlayers.get(i).play();
 			try { Thread.sleep(1000); } catch(Exception e) {}	
-			chordPlayers.get(i).stop(newSynth, newLineout);
+			chordPlayers.get(i).stop();
 		}
 	}
-	public void playShortSound(Synthesizer newSynth, LineOut newLineout){
+	public void playShortSound(){
 		for (int i = 0 ; i < chordPlayers.size() ; i++) {
-			chordPlayers.get(i).playShortSound(newSynth, newLineout);
+			chordPlayers.get(i).playShortSound();
 			try { Thread.sleep(1000); } catch(Exception e) {}
-			chordPlayers.get(i).stop(newSynth, newLineout);
+			chordPlayers.get(i).stop();
 		}
 	}
 
-	public void stop(Synthesizer newSynth, LineOut newLineout) {
+	public void stop() {
 	
 		
 	}

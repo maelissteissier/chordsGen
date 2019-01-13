@@ -7,7 +7,7 @@ public class ReadWriteHelpers {
         PrintWriter out;
         String fileName = new SimpleDateFormat("yyyy-MM-dd_hh-mm-ss").format(new Date()) + ".HumanReadable";
         try {
-            out = new PrintWriter( new FileWriter("generatedData/" + fileName));
+            out = new PrintWriter( new FileWriter("savedGeneratedChords/" + fileName));
             out.println(degreeProgression + "\n");
             out.println(chordProgression);
 

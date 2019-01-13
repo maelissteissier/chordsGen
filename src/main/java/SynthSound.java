@@ -31,25 +31,37 @@ import com.jsyn.unitgen.SineOscillator;
 	        myOsc.frequency.set(frequency);
 	        myOsc.amplitude.set(0);
 		}
-		
-		public void play(Synthesizer newSynth, LineOut newLineout) {
-			newSynth.start();
-			newSynth.add(newLineout);
-			newLineout.start();
-		    myOsc.amplitude.set(0.6);
-		    myOsc.frequency.set(frequency);
+
+		public Double getFrequency() {
+			return frequency;
 		}
-		public void playShortSound(Synthesizer newSynth, LineOut newLineout){
-			newSynth.start();
-			newSynth.add(newLineout);
-			newLineout.start();
+
+		public Double getAmplitude() {
+			return amplitude;
+		}
+
+		public Synthesizer getSynthesizer() {
+			return synthesizer;
+		}
+
+		public SawtoothOscillator getMyOsc() {
+			return myOsc;
+		}
+
+		public FilterLowPass getLowPass() {
+			return lowPass;
+		}
+
+		public void play() {
+		    myOsc.amplitude.set(0.6);
+
+		}
+		public void playShortSound() {
 			myOsc.amplitude.set(0.6);
 			myOsc.frequency.set(frequency);
 			try { Thread.sleep(500); } catch(Exception e) {}
 		}
-		public void stop(Synthesizer newSynth, LineOut newLineout) {
-			newSynth.stop();
-			newLineout.stop();
+		public void stop() {
 			myOsc.amplitude.set(0.0);
 		}
 

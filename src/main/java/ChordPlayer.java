@@ -25,22 +25,43 @@ public class ChordPlayer implements Playable {
 		}
 		return soundList;
 	}
-	
-	public void play(Synthesizer newSynth, LineOut newLineout) {
+
+	public Chord getChord() {
+		return chord;
+	}
+
+	public SynthSound getTimbre() {
+		return timbre;
+	}
+
+	public Synthesizer getSynth() {
+		return synth;
+	}
+
+	public LineOut getLineOut() {
+		return lineOut;
+	}
+
+	public ArrayList<SynthSound> getSoundList() {
+		return soundList;
+	}
+
+	public void play() {
 		for (int i = 0 ; i < soundList.size() ; i++) {
-			soundList.get(i).play(newSynth, newLineout);
+			soundList.get(i).play();
 		}
 	}
-	public void playShortSound(Synthesizer newSynth, LineOut newLineout){
+	public void playShortSound(){
 		for (int i = 0 ; i < soundList.size() ; i++) {
-			soundList.get(i).playShortSound(newSynth, newLineout);
+			soundList.get(i).playShortSound();
 		}
 	}
 
-	public void stop(Synthesizer newSynth, LineOut newLineout) {
+	public void stop() {
 		for (int i = 0 ; i < soundList.size() ; i++) {
-			soundList.get(i).stop(newSynth, newLineout);
+			soundList.get(i).stop();
 		}
+
 	}
 	
 
