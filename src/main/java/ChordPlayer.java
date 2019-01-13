@@ -26,15 +26,20 @@ public class ChordPlayer implements Playable {
 		return soundList;
 	}
 	
-	public void play() {
+	public void play(Synthesizer newSynth, LineOut newLineout) {
 		for (int i = 0 ; i < soundList.size() ; i++) {
-			soundList.get(i).play();
+			soundList.get(i).play(newSynth, newLineout);
+		}
+	}
+	public void playShortSound(Synthesizer newSynth, LineOut newLineout){
+		for (int i = 0 ; i < soundList.size() ; i++) {
+			soundList.get(i).playShortSound(newSynth, newLineout);
 		}
 	}
 
-	public void stop() {
+	public void stop(Synthesizer newSynth, LineOut newLineout) {
 		for (int i = 0 ; i < soundList.size() ; i++) {
-			soundList.get(i).stop();
+			soundList.get(i).stop(newSynth, newLineout);
 		}
 	}
 	

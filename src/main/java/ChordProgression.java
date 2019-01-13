@@ -8,8 +8,8 @@ public class ChordProgression {
         MINOR
     }
     private ArrayList<Chord> chordProgression = new ArrayList<Chord>();
-    public ChordProgression(ArrayList<DegreeNode> degreeProgression, ScaleType scaleType, Note tonic){
-        chordProgression = degreesToChords(degreeProgression, scaleType, tonic );
+    public ChordProgression(DegreeProgression degreeProgression, ScaleType scaleType, Note tonic){
+        chordProgression = degreesToChords(degreeProgression.getDegreeProgression(), scaleType, tonic );
     }
 
     /**

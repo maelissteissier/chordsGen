@@ -32,11 +32,24 @@ import com.jsyn.unitgen.SineOscillator;
 	        myOsc.amplitude.set(0);
 		}
 		
-		public void play() { 
-		   myOsc.amplitude.set(0.6);
-		   myOsc.frequency.set(frequency);;
+		public void play(Synthesizer newSynth, LineOut newLineout) {
+			newSynth.start();
+			newSynth.add(newLineout);
+			newLineout.start();
+		    myOsc.amplitude.set(0.6);
+		    myOsc.frequency.set(frequency);
 		}
-		public void stop() {
+		public void playShortSound(Synthesizer newSynth, LineOut newLineout){
+			newSynth.start();
+			newSynth.add(newLineout);
+			newLineout.start();
+			myOsc.amplitude.set(0.6);
+			myOsc.frequency.set(frequency);
+			try { Thread.sleep(500); } catch(Exception e) {}
+		}
+		public void stop(Synthesizer newSynth, LineOut newLineout) {
+			newSynth.stop();
+			newLineout.stop();
 			myOsc.amplitude.set(0.0);
 		}
 

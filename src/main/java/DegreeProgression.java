@@ -2,9 +2,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class DegreeProgressionGenerator {
+public class DegreeProgression {
 
-	private ArrayList<DegreeNode> degreeProgression;
 	public static DegreeNode degree1 = new DegreeNode(1);
 	public static DegreeNode degree2 = new DegreeNode(2);
 	public static DegreeNode degree3 = new DegreeNode(3);
@@ -13,8 +12,10 @@ public class DegreeProgressionGenerator {
 	public static DegreeNode degree6 = new DegreeNode(6);
 	public static DegreeNode degree7 = new DegreeNode(7);
 
+	private ArrayList<DegreeNode> degreeProgression;
 
-	public DegreeProgressionGenerator(DegreeNode firstDegree, int chordProgressionSize) {
+
+	public DegreeProgression(DegreeNode firstDegree, int chordProgressionSize) {
 		tonalDegreeStructure();
 		this.degreeProgression = new ArrayList<DegreeNode>();
 		this.degreeProgression.add(firstDegree);
