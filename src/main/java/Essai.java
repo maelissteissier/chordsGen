@@ -15,16 +15,16 @@ public class Essai {
 		mySynth.add(myOut);
 		myOut.start();
 		try { Thread.sleep(1000); } catch(Exception e) {}
-		
-		
-		
-		DegreeGenerator essai = new DegreeGenerator(DegreeGenerator.degree1, 9);
-		ArrayList<Chord> chordList = DegreeGenerator.degreesToChords(essai.degreeProgression, DegreeGenerator.ScaleType.MAJOR, new Note(Note.c,3));
-		essai.printDegreeProgression();
-		printChordProgression(chordList);
+
+		DegreeProgressionGenerator myDegreeProgression = new DegreeProgressionGenerator(DegreeProgressionGenerator.degree1, 9);
+		ChordProgression myChordProgression = new ChordProgression(myDegreeProgression.getDegreeProgression(), ChordProgression.ScaleType.MAJOR, new Note(Note.C,3));
+		ArrayList<Chord> chordList = myChordProgression.getChordProgression();
+		System.out.println(myDegreeProgression);
+		System.out.println(myChordProgression);
 	
 		ChordSequencePlayer caMarcheTu = new ChordSequencePlayer(chordList, mySynth, myOut);
 		caMarcheTu.play();
+		caMarcheTu.stop();
 		
 		
 		/*Chord cm = new Chord(new Note(Note.c, 3), Chord.ChordType.DOMINANT7TH, 2);
@@ -35,36 +35,35 @@ public class Essai {
 	}
 	
 	public static void prettyPrintChord(Chord chord) {
-		System.out.println("Accord de" + chord.tonic.IdxSemiToneRelativeToOctave + chord.chordType + "renversement" + chord.inversion);
-		
-		
-		for (int i = 0 ; i < chord.notes.size() ; i++) {
-			System.out.println("note" + i);
+		System.out.println("Accord de" + chord.getTonic().getIdxSemiToneRelativeToOctave() + chord.getChordType() + "renversement" + chord.getInversion());
+
+		for (int i = 0 ; i < chord.getNotes().size() ; i++) {
+			System.out.println("note " + i);
 			
-			if (chord.notes.get(i).IdxSemiToneRelativeToOctave == 1) {
-				System.out.println("C" + chord.notes.get(i).octave);
-			} else if (chord.notes.get(i).IdxSemiToneRelativeToOctave == 2) {
-				System.out.println("C#"  + chord.notes.get(i).octave);
-			} else if (chord.notes.get(i).IdxSemiToneRelativeToOctave == 3) {
-				System.out.println("D"  + chord.notes.get(i).octave);
-			} else if (chord.notes.get(i).IdxSemiToneRelativeToOctave == 4) {
-				System.out.println("D#"  + chord.notes.get(i).octave);
-			} else if (chord.notes.get(i).IdxSemiToneRelativeToOctave == 5) {
-				System.out.println("E"  + chord.notes.get(i).octave);
-			} else if (chord.notes.get(i).IdxSemiToneRelativeToOctave == 6) {
-				System.out.println("F"  + chord.notes.get(i).octave);
-			} else if (chord.notes.get(i).IdxSemiToneRelativeToOctave == 7) {
-				System.out.println("F#"  + chord.notes.get(i).octave);
-			} else if (chord.notes.get(i).IdxSemiToneRelativeToOctave == 8) {
-				System.out.println("G"  + chord.notes.get(i).octave);
-			} else if (chord.notes.get(i).IdxSemiToneRelativeToOctave == 9) {
-				System.out.println("G#"  + chord.notes.get(i).octave);
-			} else if (chord.notes.get(i).IdxSemiToneRelativeToOctave == 10) {
-				System.out.println("A"  + chord.notes.get(i).octave);
-			} else if (chord.notes.get(i).IdxSemiToneRelativeToOctave == 11) {
-				System.out.println("A#"  + chord.notes.get(i).octave);
-			} else if (chord.notes.get(i).IdxSemiToneRelativeToOctave == 12) {
-				System.out.println("B"  + chord.notes.get(i).octave);
+			if (chord.getNotes().get(i).getIdxSemiToneRelativeToOctave() == 1) {
+				System.out.println("C" + chord.getNotes().get(i).getOctave());
+			} else if (chord.getNotes().get(i).getIdxSemiToneRelativeToOctave() == 2) {
+				System.out.println("C#"  + chord.getNotes().get(i).getOctave());
+			} else if (chord.getNotes().get(i).getIdxSemiToneRelativeToOctave() == 3) {
+				System.out.println("D"  + chord.getNotes().get(i).getOctave());
+			} else if (chord.getNotes().get(i).getIdxSemiToneRelativeToOctave() == 4) {
+				System.out.println("D#"  + chord.getNotes().get(i).getOctave());
+			} else if (chord.getNotes().get(i).getIdxSemiToneRelativeToOctave() == 5) {
+				System.out.println("E"  + chord.getNotes().get(i).getOctave());
+			} else if (chord.getNotes().get(i).getIdxSemiToneRelativeToOctave() == 6) {
+				System.out.println("F"  + chord.getNotes().get(i).getOctave());
+			} else if (chord.getNotes().get(i).getIdxSemiToneRelativeToOctave() == 7) {
+				System.out.println("F#"  + chord.getNotes().get(i).getOctave());
+			} else if (chord.getNotes().get(i).getIdxSemiToneRelativeToOctave() == 8) {
+				System.out.println("G"  + chord.getNotes().get(i).getOctave());
+			} else if (chord.getNotes().get(i).getIdxSemiToneRelativeToOctave() == 9) {
+				System.out.println("G#"  + chord.getNotes().get(i).getOctave());
+			} else if (chord.getNotes().get(i).getIdxSemiToneRelativeToOctave() == 10) {
+				System.out.println("A"  + chord.getNotes().get(i).getOctave());
+			} else if (chord.getNotes().get(i).getIdxSemiToneRelativeToOctave() == 11) {
+				System.out.println("A#"  + chord.getNotes().get(i).getOctave());
+			} else if (chord.getNotes().get(i).getIdxSemiToneRelativeToOctave() == 12) {
+				System.out.println("B"  + chord.getNotes().get(i).getOctave());
 			}
 		}	
 	}
@@ -76,10 +75,10 @@ public class Essai {
 	}
 	public static void printReferences(Note note) {
 		System.out.println("autre reference");
-		System.out.println(note.idxSemiTone);
-		System.out.println(note.frequency);
-		System.out.println(note.octave);
-		System.out.println(note.IdxSemiToneRelativeToOctave);
+		System.out.println(note.getIdxSemiTone());
+		System.out.println(note.getFrequency());
+		System.out.println(note.getOctave());
+		System.out.println(note.getIdxSemiToneRelativeToOctave());
 	}
 
 }

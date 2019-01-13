@@ -2,10 +2,10 @@ import java.util.ArrayList;
 
 public class Chord {
 
-	Note tonic;
-	ChordType chordType;
-	ArrayList<Note> notes;
-	int inversion;
+	private Note tonic;
+	private ChordType chordType;
+	private ArrayList<Note> notes;
+	private int inversion;
 	
 	public enum ChordType {
 		MAJOR,
@@ -24,7 +24,7 @@ public class Chord {
 		this.notes = getChordNotes();
 	}
 	
-	public ArrayList<Integer> getChordTypeIntervalls() {
+	private ArrayList<Integer> getChordTypeIntervalls() {
 		ArrayList<Integer> chordTypeIntervalls = new ArrayList<Integer>();
 		if (chordType == ChordType.MAJOR) {
 			chordTypeIntervalls.add(4);
@@ -52,14 +52,13 @@ public class Chord {
 			chordTypeIntervalls.add(3);
 		}
 		return chordTypeIntervalls;
-		
 	}
 	
 	public ArrayList<Note> reverseChord(ArrayList<Note> chord) {	
 		for (int i = 0; i < inversion ; i++) {
 		Note tempNoteStore = chord.get(0);
 		chord.remove(0);
-		chord.add(new Note((tempNoteStore.idxSemiTone+12)));
+		chord.add(new Note((tempNoteStore.getIdxSemiTone()+12)));
 		}
 		return chord;
 	}
@@ -68,21 +67,36 @@ public class Chord {
 		ArrayList<Note> chord = new ArrayList<Note>();
 		chord.add(tonic);
 		for (int i = 0 ; i < getChordTypeIntervalls().size() ; i++) {
-			chord.add(new Note((chord.get(i).idxSemiTone)+ (getChordTypeIntervalls().get(i))));
+			chord.add(new Note((chord.get(i).getIdxSemiTone())+ (getChordTypeIntervalls().get(i))));
 		}
 		if (inversion != 0) {
 			chord = reverseChord(chord);
 		}
-		
 		return chord;
 	}
-	
-	/*public ArrayList<Double> getChordFrequencies(Chord chord) {
-		ArrayList<Double> chordFrequencies = new ArrayList<Double>();
-		for(int i = 0 ; i < chord.getChordNotes().size() ; i++) {
-			chordFrequencies.add(chord.getChordNotes().get(i).frequency);
+
+	public Note getTonic() {
+		return tonic;
+	}
+
+	public ChordType getChordType() {
+		return chordType;
+	}
+
+	public ArrayList<Note> getNotes() {
+		return notes;
+	}
+
+	public int getInversion() {
+		return inversion;
+	}
+
+	public String toString() {
+		String chord = "Accord " + chordType + " de " + tonic + ". Renversement " + inversion + "\n";
+
+		for (int i = 0 ; i < notes.size() ; i++) {
+			chord = chord + "note " + i + " : " + notes.get(i) + "\n";
 		}
-		return chordFrequencies;
-	}*/
-		
+		return chord;
+	}
 }
