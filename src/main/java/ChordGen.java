@@ -13,8 +13,8 @@ public class ChordGen {
 			String argStartingDegree = args[3];
 			String typeOfSound = args[4];
 
-			Note note = new Note(Note.C, 3);
-			ChordProgression.ScaleType scaletype = ChordProgression.ScaleType.MAJOR;
+			Note note;
+			ChordProgression.ScaleType scaletype;
 			int numberOfChords = Integer.parseInt(argNumberOfChords);
 			int idxStartingDegree = Integer.parseInt(argStartingDegree);
 			DegreeNode startingDegree = DegreeProgression.degree1;
@@ -44,7 +44,7 @@ public class ChordGen {
 			} else if (argKey.equals("B") || argKey.equals("Cb")){
 				note = new Note(Note.B, 3);
 			} else {
-				throw new Exception("Invalid Key argument ! ");
+				throw new Exception("Invalid KEY argument ! ");
 			}
 
 			if (argScaleType.toUpperCase().equals("MAJOR")) {
@@ -52,7 +52,7 @@ public class ChordGen {
 			} else if (argScaleType.toUpperCase().equals("MINOR")) {
 				scaletype = ChordProgression.ScaleType.MINOR;
 			} else {
-				throw new Exception("chordGen: Invalid scaletype argument !");
+				throw new Exception("chordGen: Invalid SCALETYPE argument !");
 			}
 
 			if (idxStartingDegree == 1){
@@ -69,6 +69,8 @@ public class ChordGen {
 				startingDegree = DegreeProgression.degree6;
 			} else if (idxStartingDegree == 7){
 				startingDegree = DegreeProgression.degree7;
+			}else {
+				throw new Exception("chordGen: Invalid DEGREE argument !");
 			}
 
 			// generates progression of 9 chords from degree1
@@ -78,6 +80,9 @@ public class ChordGen {
 			ArrayList<Chord> chordList = myChordProgression.getChordProgression();
 			System.out.println(myDegreeProgression);
 			System.out.println(myChordProgression);
+
+			// Save generated chord progression in text-file readable for humans
+			ReadWriteHelpers.saveHumanReadableChordProgression(myDegreeProgression, myChordProgression, argKey, argScaleType.toUpperCase());
 
 			if (!typeOfSound.toUpperCase().equals("SILENT")) {
 
@@ -95,10 +100,6 @@ public class ChordGen {
 					// play chord progression
 					myChordSequencePlayer.play();
 				}
-
-				// Save generated chord progression in text-file readable for humans
-				ReadWriteHelpers.saveHumanReadableChordProgression(myDegreeProgression, myChordProgression);
-
 				mySynth.stop();
 			}
 

@@ -92,7 +92,7 @@ public class Chord {
 	}
 
 	public String toString() {
-		String chord = "Accord " + chordType + " de " + tonic + ". Renversement " + inversion + "\n";
+		String chord = "Chord : " + chordType + " " + tonic + ". Inversion: " + inversion + "\n";
 
 		for (int i = 0 ; i < notes.size() ; i++) {
 			chord = chord + "note " + i + " : " + notes.get(i) + "\n";
