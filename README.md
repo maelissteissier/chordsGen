@@ -10,7 +10,7 @@ This program generates a **random musical chord progression** that makes sense i
 
 ```sh
 $ git clone https://github.com/maelissteissier/chordsGen
-$ cd ChordProgressionGenerator
+$ cd chordsGen
 $ mvn package
 $ ./chordsGen.sh "G#" minor 6 2 both
 ```
