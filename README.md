@@ -36,4 +36,4 @@ $ ./chordsGen.sh [KEY] [SCALETYPE] [NUMBER OF CHORDS] [STARTING DEGREE] [PLAY SO
 
 ## Acknowledgments
 
-> This program uses [JSyn](https://github.com/philburk/jsyn) under the Apache licence.
+> This program uses [JSyn](https://github.com/philburk/jsyn) under the Apache license.
