@@ -12,7 +12,7 @@ This program generates a **random musical chord progression** that makes sense i
 $ git clone https://github.com/maelissteissier/chordsGen
 $ cd chordsGen
 $ mvn package
-$ ./chordsGen.sh "D#" minor 6 1 both
+$ ./chordsGen.sh "D#" major 6 1 both
 ```
 
 **Arguments references**
