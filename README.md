@@ -9,15 +9,15 @@ This program generates a **random musical chord progression** that makes sense i
 ## Installation
 
 ```sh
-$ git clone
+$ git clone https://github.com/maelissteissier/chordsGen
 $ cd ChordProgressionGenerator
 $ mvn package
-$ ./chordGen.sh "G#" minor 6 2 both
+$ ./chordsGen.sh "G#" minor 6 2 both
 ```
 
 **Arguments references**
 ```sh
-$ ./chordGen.sh [KEY] [SCALETYPE] [NUMBER OF CHORDS] [STARTING DEGREE] [PLAY SOUND]
+$ ./chordsGen.sh [KEY] [SCALETYPE] [NUMBER OF CHORDS] [STARTING DEGREE] [PLAY SOUND]
 ```
 
 |               |                       |
